@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Navbar from './Common/components/Navbar';
+import StartPage from './StartPage/StartPage';
+import TodoPage from './TodoPage/TodoPage';
+import MovieSearch from './MovieSearch/MovieSearch';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Navbar />
+        <Route exact path='/' component={StartPage} />
+        <Route exact path='/att-gora' component={TodoPage} />
+        <Route exact path='/filmer' component={MovieSearch} />
+      </div>
+    );
+  } 
 }
 
 export default App;
